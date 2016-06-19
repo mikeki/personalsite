@@ -3,7 +3,7 @@ import com.typesafe.sbt.SbtNativePackager._
 packageArchetype.java_application
 name := "personal-finatra-site"
 organization := "com.mikeki"
-version := "0.0.1-SNAPSHOT"
+version := "0.0.1"
 scalaVersion := "2.11.8"
 fork in run := true
 parallelExecution in ThisBuild := false
