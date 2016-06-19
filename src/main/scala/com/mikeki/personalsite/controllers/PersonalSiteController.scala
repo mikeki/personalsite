@@ -20,12 +20,20 @@ class PersonalSiteController @Inject()(
 
   get("/") { request: Request =>
     twitterClient.getUser(TwitterUser).as[Future[User]].map { user =>
-      HomeView(user.name)
+      HomeView(
+        user.name,
+        user.id,
+        user.profile_image_url_https,
+        user.profile_banner_url.getOrElse("")
+      )
     }
   }
 }
 
 @Mustache("home")
 case class HomeView(
-  name: String
+  name: String,
+  twitter_id: Long,
+  avatar_url: String,
+  banner_url: String
 )
