@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/personal-finatra-site -- -http.port=:80 -admin.port=:0
+web: target/universal/stage/bin/personal-finatra-site -- -http.port=:$PORT -admin.port=:$PORT
