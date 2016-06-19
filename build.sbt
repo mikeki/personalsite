@@ -1,7 +1,7 @@
 import com.typesafe.sbt.SbtNativePackager._
 
 packageArchetype.java_application
-name := "personal-finatra-site"
+name := "personalsite"
 organization := "com.mikeki"
 version := "0.0.1"
 scalaVersion := "2.11.8"
@@ -13,6 +13,8 @@ lazy val versions = new {
   val guice = "4.0"
   val logback = "1.1.7"
   val finagleMetrics = "0.0.2"
+  val bijectionUtil = "0.9.2"
+  val twitter4s = "0.1"
 }
 
 resolvers ++= Seq(
@@ -29,6 +31,8 @@ libraryDependencies ++= Seq(
   "com.twitter.finatra" %% "finatra-httpclient" % versions.finatra,
   "ch.qos.logback" % "logback-classic" % versions.logback,
   "com.github.rlazoti" %% "finagle-metrics" % versions.finagleMetrics,
+  "com.twitter" %% "bijection-util" % versions.bijectionUtil,
+  "com.danielasfregola" %% "twitter4s" % versions.twitter4s,
 
   "com.twitter.finatra" %% "finatra-http" % versions.finatra % "test",
   "com.twitter.finatra" %% "finatra-jackson" % versions.finatra % "test",

@@ -1,13 +1,15 @@
-package com.twitter.hello.heroku
+package com.mikeki.personalsite
 
+import com.mikeki.personalsite.controllers.PersonalSiteController
+import com.mikeki.personalsite.modules.TwitterClientModule
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.filters.{CommonFilters, LoggingMDCFilter, TraceIdMDCFilter}
 import com.twitter.finatra.http.routing.HttpRouter
 
-object HelloWorldServerMain extends HelloWorldServer
+object PersonalSiteServerMain extends PersonalSiteServer
 
-class HelloWorldServer extends HttpServer {
+class PersonalSiteServer extends HttpServer {
 
   /*
    * Since Heroku only supports a single port per service,
@@ -15,11 +17,15 @@ class HelloWorldServer extends HttpServer {
    */
   override val disableAdminHttpServer = true
 
+  override val modules = Seq(
+    TwitterClientModule
+  )
+
   override def configureHttp(router: HttpRouter) {
     router
       .filter[LoggingMDCFilter[Request, Response]]
       .filter[TraceIdMDCFilter[Request, Response]]
       .filter[CommonFilters]
-      .add[HelloWorldController]
+      .add[PersonalSiteController]
   }
 }
