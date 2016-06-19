@@ -15,7 +15,9 @@ lazy val versions = new {
   val finagleMetrics = "0.0.2"
 }
 
-resolvers ++= Seq()
+resolvers ++= Seq(
+  "Twitter" at "https://maven.twttr.com"
+)
 
 assemblyMergeStrategy in assembly := {
   case "BUILD" => MergeStrategy.discard
