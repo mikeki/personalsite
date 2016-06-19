@@ -7,6 +7,7 @@ import com.twitter.bijection.Conversion._
 import com.twitter.bijection.twitter_util.UtilBijections.twitter2ScalaFuture
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
+import com.twitter.finatra.response.Mustache
 import com.twitter.util.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -19,7 +20,12 @@ class PersonalSiteController @Inject()(
 
   get("/") { request: Request =>
     twitterClient.getUser(TwitterUser).as[Future[User]].map { user =>
-      "Hello " + user.name
+      HomeView(user.name)
     }
   }
 }
+
+@Mustache("home")
+case class HomeView(
+  name: String
+)
