@@ -19,7 +19,7 @@ body {
   background: #040409;
   text-align: center;
   text-transform: uppercase;
-  font-family: "brandon-grotesque";
+  font-family: 'Raleway' sans-serif;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
@@ -32,7 +32,7 @@ body:before {
   bottom: 0;
   z-index: -1;
   background: #040409 url(/images/background.jpg) no-repeat center center fixed;
-  background-size: cover;
+  background-size: auto 100%;
   -moz-filter: blur(10px) brightness(90%);
   -webkit-filter: blur(10px) brightness(90%);
   filter: blur(10px) brightness(90%);

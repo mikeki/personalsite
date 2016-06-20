@@ -17,17 +17,19 @@
     <!--<script src="/js/google-analytics.js"></script>-->
     <!-- /build -->
 
-    <script src="//use.typekit.net/les3dve.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
     <script>try{Typekit.load();}catch(e){}</script>
 
     <!-- build:style inline main -->
     <link href="/css/main.css" rel="stylesheet" type="text/css">
     <!-- /build -->
-    <style>
-        body:before {
-          background: #040409 url({{banner_url}}) no-repeat center center fixed;
-        }
-    </style>
+    {{#banner_url}}
+        <style>
+            body:before {
+              background: #040409 url({{banner_url}}) no-repeat center center fixed;
+            }
+        </style>
+    {{/banner_url}}
 </head>
 <body>
 <div id="container">

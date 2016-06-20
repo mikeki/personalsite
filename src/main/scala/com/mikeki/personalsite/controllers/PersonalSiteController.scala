@@ -24,7 +24,7 @@ class PersonalSiteController @Inject()(
         user.name,
         user.id,
         user.profile_image_url_https.replace("normal", "400x400"),
-        user.profile_banner_url.getOrElse("")
+        user.profile_banner_url.map(_ + "/1500x500")
       )
     }
   }
@@ -39,5 +39,5 @@ case class HomeView(
   name: String,
   twitter_id: Long,
   avatar_url: String,
-  banner_url: String
+  banner_url: Option[String]
 )
