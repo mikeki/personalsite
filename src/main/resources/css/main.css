@@ -1,0 +1,79 @@
+/**
+ * RESET
+ */
+body, a, h1, ul {
+  color: #fff;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+/**
+ * STYLES
+ */
+body {
+  background: #040409;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "brandon-grotesque";
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+body:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #040409 url(/images/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  -moz-filter: blur(10px) brightness(90%);
+  -webkit-filter: blur(10px) brightness(90%);
+  filter: blur(10px) brightness(90%);
+}
+
+a:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#container {
+  padding-top: 85px;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 65px;
+  font-weight: 900;
+  margin-top: 40px;
+}
+
+#details {
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  margin: 32px 0;
+  word-spacing: 3px;
+}
+
+.photo {
+  width: 300px;
+  height: 300px;
+  border-radius: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+#contact li:first-child:before {
+  content: '';
+  margin: 0;
+}
+
+#contact li:before {
+  content: '∙';
+  margin: 0 10px;
+}

@@ -23,10 +23,14 @@ class PersonalSiteController @Inject()(
       HomeView(
         user.name,
         user.id,
-        user.profile_image_url_https,
+        user.profile_image_url_https.replace("normal", "400x400"),
         user.profile_banner_url.getOrElse("")
       )
     }
+  }
+
+  get("/:*") { request: Request =>
+    response.ok.file(request.params("*"))
   }
 }
 
