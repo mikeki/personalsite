@@ -19,8 +19,9 @@ body {
   background: #040409;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Raleway' sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  font-weight: 400;
 }
 
 body:before {
@@ -32,7 +33,7 @@ body:before {
   bottom: 0;
   z-index: -1;
   background: #040409 url(/images/background.jpg) no-repeat center center fixed;
-  background-size: auto 100%;
+  background-size: cover;
   -moz-filter: blur(10px) brightness(90%);
   -webkit-filter: blur(10px) brightness(90%);
   filter: blur(10px) brightness(90%);
@@ -49,7 +50,7 @@ a:hover {
 h1 {
   font-size: 72px;
   line-height: 65px;
-  font-weight: 900;
+  font-weight: 500;
   margin-top: 40px;
 }
 
