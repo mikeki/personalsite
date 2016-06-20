@@ -16,17 +16,27 @@ class PersonalSiteController @Inject()(
   twitterClient: TwitterClient
 ) extends Controller {
 
-  val TwitterUser = "MiguelCervera"
-
   get("/") { request: Request =>
-    twitterClient.getUser(TwitterUser).as[Future[User]].map { user =>
+    val twitterHandle = scala.util.Properties.envOrNone("TWITTER_HANDLE").getOrElse {
+      throw MissingTwitterHandle
+    }
+    val description = scala.util.Properties.envOrNone("DESCRIPTION")
+    val location = scala.util.Properties.envOrNone("LOCATION")
+
+    twitterClient.getUser(twitterHandle).as[Future[User]].map { user =>
       HomeView(
         user.name,
         user.id,
         user.profile_image_url_https.replace("normal", "400x400"),
+        user.profile_image_url_https.replace("normal", "mini"),
         user.profile_banner_url.map(_ + "/1500x500"),
-        user.description,
-        user.location
+        description.orElse(user.description),
+        location.orElse(user.location),
+        twitterHandle,
+        scala.util.Properties.envOrNone("EMAIL"),
+        scala.util.Properties.envOrNone("FACEBOOK_HANDLE"),
+        scala.util.Properties.envOrNone("GITHUB_HANDLE"),
+        scala.util.Properties.envOrNone("LINKEDIN_HANDLE")
       )
     }
   }
@@ -41,7 +51,15 @@ case class HomeView(
   name: String,
   twitter_id: Long,
   avatar_url: String,
+  favicon_url: String,
   banner_url: Option[String],
   description: Option[String],
-  location: Option[String]
+  location: Option[String],
+  twitter: String,
+  email: Option[String],
+  facebook: Option[String],
+  github: Option[String],
+  linked_in: Option[String]
 )
+
+object MissingTwitterHandle extends UnsupportedOperationException

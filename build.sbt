@@ -32,23 +32,5 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % versions.logback,
   "com.github.rlazoti" %% "finagle-metrics" % versions.finagleMetrics,
   "com.twitter" %% "bijection-util" % versions.bijectionUtil,
-  "com.danielasfregola" %% "twitter4s" % versions.twitter4s,
-
-  "com.twitter.finatra" %% "finatra-http" % versions.finatra % "test",
-  "com.twitter.finatra" %% "finatra-jackson" % versions.finatra % "test",
-  "com.twitter.inject" %% "inject-server" % versions.finatra % "test",
-  "com.twitter.inject" %% "inject-app" % versions.finatra % "test",
-  "com.twitter.inject" %% "inject-core" % versions.finatra % "test",
-  "com.twitter.inject" %% "inject-modules" % versions.finatra % "test",
-  "com.google.inject.extensions" % "guice-testlib" % versions.guice % "test",
-
-  "com.twitter.finatra" %% "finatra-http" % versions.finatra % "test" classifier "tests",
-  "com.twitter.finatra" %% "finatra-jackson" % versions.finatra % "test" classifier "tests",
-  "com.twitter.inject" %% "inject-server" % versions.finatra % "test" classifier "tests",
-  "com.twitter.inject" %% "inject-app" % versions.finatra % "test" classifier "tests",
-  "com.twitter.inject" %% "inject-core" % versions.finatra % "test" classifier "tests",
-  "com.twitter.inject" %% "inject-modules" % versions.finatra % "test" classifier "tests",
-
-  "org.mockito" % "mockito-core" % "1.9.5" % "test",
-  "org.scalatest" %% "scalatest" % "2.2.3" % "test",
-  "org.specs2" %% "specs2" % "2.3.12" % "test")
+  "com.danielasfregola" %% "twitter4s" % versions.twitter4s
+)
